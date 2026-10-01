@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watercolor Memories</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="watercolor watercolor-one"></div>
+  <div class="watercolor watercolor-two"></div>
+
+  <main class="scene">
+    <p class="hint" id="hint">বইটি খুলতে কভারে ক্লিক করো ✿</p>
+
+    <div class="book" id="book" aria-label="ছবির অ্যালবাম">
+      <div class="book-back"></div>
+      <div class="pages" id="pages"></div>
+      <button class="cover" id="cover" aria-label="বই খুলুন">
+        <span class="cover-frame">
+          <span class="cover-flower flower-a">✿</span>
+          <span class="cover-flower flower-b">❀</span>
+          <img src="images/photo1.jpg" alt="অ্যালবামের কভার ছবি" class="cover-photo">
+          <span class="cover-title">আমাদের<br>স্মৃতির অ্যালবাম</span>
+          <span class="cover-subtitle">little moments, forever memories</span>
+          <span class="cover-flower flower-c">✿</span>
+        </span>
+      </button>
+    </div>
+
+    <div class="controls">
+      <button id="prev" disabled>❮ আগের পাতা</button>
+      <span id="pageCount">কভার</span>
+      <button id="next" disabled>পরের পাতা ❯</button>
+    </div>
+    <button class="music-button" id="musicButton">♫ গান চালু করো</button>
+    <audio id="music" src="music/Eka DIn - Lofi _ একা দিন _ Fidaa _ Minar _ Arindom _ Prasen _ Happy Pills _ SVF Music(MP3_160K).mp3" loop preload="none"></audio>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

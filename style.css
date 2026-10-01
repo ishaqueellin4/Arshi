@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; }
+:root { --paper: #fffaf0; --ink: #65545a; }
+body {
+  margin: 0; min-height: 100vh; overflow-x: hidden;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, #f8e9e7, #e9e4f2 48%, #e3f0e8);
+  font-family: 'Noto Serif Bengali', serif; color: var(--ink);
+}
+.watercolor { position: fixed; border-radius: 50%; filter: blur(35px); opacity: .45; pointer-events: none; }
+.watercolor-one { width: 280px; height: 250px; background: #f4b8c8; top: 4%; left: -70px; }
+.watercolor-two { width: 320px; height: 300px; background: #b9d8cf; right: -90px; bottom: 0; }
+.scene { width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 12px; }
+.hint { margin: 0 0 14px; font-size: 14px; text-align: center; }
+.book { position: relative; width: min(88vw, 390px); height: min(66vh, 520px); min-height: 360px; perspective: 1800px; }
+.book-back {
+  position: absolute; inset: 0; border-radius: 7px 13px 13px 7px;
+  background: #7c5367; box-shadow: 10px 14px 28px #4d354333;
+}
+.pages { position: absolute; inset: 8px 8px 8px 10px; background: #fffaf0; border-radius: 3px 8px 8px 3px; }
+.page {
+  position: absolute; inset: 0; transform-origin: left center; transform-style: preserve-3d;
+  transition: transform .85s cubic-bezier(.2,.7,.15,1); cursor: pointer;
+}
+.page-face {
+  position: absolute; inset: 0; backface-visibility: hidden; overflow: hidden;
+  padding: 22px 19px 18px; border: 1px solid #eadfce;
+  background:
+    radial-gradient(ellipse at 12% 10%, #f5d9d7aa, transparent 33%),
+    radial-gradient(ellipse at 90% 92%, #dce9d8aa, transparent 34%), var(--paper);
+}
+.page-front { border-radius: 3px 7px 7px 3px; }
+.page-back { transform: rotateY(180deg); border-radius: 7px 3px 3px 7px; }
+.page.flipped { transform: rotateY(-180deg); }
+.page-content { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 13px; }
+.page-photo { display: block; width: 100%; max-height: 68%; object-fit: contain; border: 7px solid #fffdf8; outline: 1px solid #e6d8c9; box-shadow: 0 5px 15px #59454a22; }
+.caption { margin: 0; text-align: center; line-height: 1.75; font-size: 15px; color: #6f5962; }
+.page-number { position: absolute; bottom: 10px; left: 0; right: 0; text-align: center; font-size: 11px; opacity: .65; }
+.cover {
+  position: absolute; inset: 0; width: 100%; height: 100%; padding: 15px;
+  border: 0; border-radius: 7px 13px 13px 7px; cursor: pointer; color: #fffaf0;
+  transform-origin: left center; transform-style: preserve-3d;
+  transition: transform 1s cubic-bezier(.2,.7,.15,1); z-index: 20;
+  background: linear-gradient(145deg, #9c6f82, #765368 58%, #61475b);
+  box-shadow: 8px 13px 25px #4d354344, inset 4px 0 5px #ffffff25, inset -4px 0 7px #39263b55;
+}
+.cover.open { transform: rotateY(-155deg); pointer-events: none; }
+.cover-frame {
+  position: relative; width: 100%; height: 100%; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 12px; padding: 18px;
+  border: 1px solid #e9d4bd; border-radius: 4px;
+  background: radial-gradient(ellipse at 15% 20%, #eab5c866, transparent 28%),
+              radial-gradient(ellipse at 88% 80%, #c3d8b866, transparent 30%);
+}
+.cover-photo { width: 68%; height: 49%; object-fit: cover; border: 5px solid #fff9ee; box-shadow: 0 5px 15px #30202c55; }
+.cover-title { font-size: clamp(21px, 6vw, 29px); text-align: center; line-height: 1.5; text-shadow: 0 2px 5px #39263b66; }
+.cover-subtitle { font: italic 11px Georgia, serif; letter-spacing: .5px; opacity: .9; text-align: center; }
+.cover-flower { position: absolute; color: #f6d9c7; text-shadow: 0 1px 4px #45303b; }
+.flower-a { top: 7px; left: 8px; font-size: 30px; }.flower-b { top: 18px; right: 10px; font-size: 25px; }.flower-c { bottom: 8px; right: 12px; font-size: 32px; }
+.controls { display: flex; align-items: center; gap: 14px; margin-top: 19px; }
+.controls button, .music-button {
+  border: 1px solid #b995a2; border-radius: 22px; padding: 9px 13px;
+  background: #fffaf0cc; color: #674d5b; font: inherit; font-size: 12px; cursor: pointer;
+}
+.controls button:disabled { opacity: .35; cursor: default; }
+#pageCount { min-width: 55px; text-align: center; font-size: 12px; }
+.music-button { margin-top: 12px; }
+@media (max-height: 600px) { .book { height: 65vh; min-height: 300px; } .hint { margin-bottom: 7px; } .controls { margin-top: 10px; } }
